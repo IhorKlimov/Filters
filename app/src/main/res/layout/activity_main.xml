@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:fitsSystemWindows="true"
+        tools:context="com.myhexaville.filters.MainActivity">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <View
+            android:id="@+id/reveal"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/sheet"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:id="@+id/list"
+            android:layout_alignParentBottom="true"
+            android:layout_height="350dp">
+
+            <View
+                android:layout_width="150dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_height="26dp"
+                android:background="@drawable/blank_space" />
+
+            <View
+                android:layout_width="350dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_height="26dp"
+                android:background="@drawable/blank_space" />
+
+            <View
+                android:layout_width="100dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_height="26dp"
+                android:background="@drawable/blank_space" />
+
+            <View
+                android:layout_width="240dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_height="26dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@drawable/blank_space" />
+
+            <View
+                android:layout_width="400dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_height="26dp"
+                android:background="@drawable/blank_space" />
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/reveal">
+
+            <View
+                android:id="@+id/sheetTop"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="@color/sheetDark"
+                android:transformPivotY="64dp"
+                android:visibility="invisible" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:id="@+id/scroll"
+                android:visibility="invisible"
+                android:scrollbars="none"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_width="150dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_height="32dp"
+                        android:background="@drawable/blank_space" />
+
+                    <View
+                        android:layout_width="150dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_height="32dp"
+                        android:background="@drawable/blank_space"
+                        android:id="@+id/view2" />
+
+                    <View
+                        android:layout_width="150dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:background="@drawable/blank_space" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </FrameLayout>
+
+
+        <View
+            android:id="@+id/bottom_list_background"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:alpha="0"
+            android:background="@drawable/bottom_sheet" />
+
+        <LinearLayout
+            android:id="@+id/bottom_list"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true">
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="12dp"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/cancel" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/apply_filters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="acceptFilters"
+                    android:padding="12dp"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/filter" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/fab_margin"
+            android:onClick="animate"
+            android:src="@drawable/filter"
+            app:borderWidth="0dp"
+            app:fabSize="normal" />
+    </RelativeLayout>
+</layout>
